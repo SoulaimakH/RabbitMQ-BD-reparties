@@ -1,0 +1,55 @@
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <br>
+      <a routerLink="/products/Ho" class="btn btn-danger">List Products Ho</a>
+      <br>
+      <br>
+      <a *ngIf="bo=='Bo1'" routerLink="/products/Bo1" class="btn btn-primary">List Products</a>
+      <a *ngIf="bo=='Bo2'" routerLink="/products/Bo2" class="btn btn-primary">List Products</a>
+     
+      <a *ngIf="bo=='Bo1'" style="margin-left:10px" routerLink="/add/Bo1" class="btn btn-success">Add Products</a>
+      <a *ngIf="bo=='Bo2'" style="margin-left:10px" routerLink="/add/Bo2" class="btn btn-success">Add Products</a>
+      <br>
+    </div>
+  </div>
+
+<h2> Product Details</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            
+            <th>Name</th>
+            <th>region</th>
+            <th>qty</th>
+            <th>cost</th>
+            <th>amt</th>
+            <th>tax</th>
+            <th>qty</th>
+            <th>total</th>
+            <th>bo_num</th>
+        </tr>
+    </thead>
+  
+    <tbody>
+        <tr *ngFor="let product of products">
+            <td class="hidden">{{product.product}}</td>
+           
+            <td>{{product.region}}</td>
+            <td>{{product.cost}}</td>
+            <td>{{product.qty}}</td>
+            <td>{{product.cost}}</td>
+            <td>{{product.amt}}</td>
+            <td>{{product.tax}}</td>
+            <td>{{product.total}}</td>
+            <td>{{product.bo_num}}</td>
+            <td>
+                <a *ngIf="bo=='Bo1'" [routerLink]="['/update', product.id, 'Bo1']" class="btn btn-info">Update</a> &nbsp;
+                <button *ngIf="bo=='Bo1'" class="btn btn-danger" (click)="deleteProduct(product)"> Delete</button>
+                <a *ngIf="bo=='Bo2'" [routerLink]="['/update', product.id,'Bo1']" class="btn btn-info">Update</a> &nbsp;
+                <button *ngIf="bo=='Bo2'" class="btn btn-danger" (click)="deleteProduct(product)"> Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
