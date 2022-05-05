@@ -1,1 +1,1 @@
-# RabbitMQ-Base-de-donn-e-reparti
+# RabbitMQ-Base-de-données-réparties
